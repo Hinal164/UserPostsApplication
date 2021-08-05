@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvPostDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_details"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/username"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPostDetails" />
+
+    <TextView
+        android:id="@+id/tvUserNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/tvUserName"
+        app:layout_constraintTop_toTopOf="@id/tvUserName"
+        tools:text="Bret" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+    <TextView
+        android:id="@+id/tvTitleValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvUserNameValue"
+        app:layout_constraintTop_toTopOf="@id/tvTitle"
+        tools:text="sunt aut facere repellat provident occaecati excepturi optio reprehenderit" />
+
+    <TextView
+        android:id="@+id/tvBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/body"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleValue" />
+
+    <TextView
+        android:id="@+id/tvBodyValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvUserNameValue"
+        app:layout_constraintTop_toTopOf="@id/tvBody"
+        tools:text="quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto" />
+
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/comments"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBodyValue" />
+
+    <TextView
+        android:id="@+id/tvCommentsValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvUserNameValue"
+        app:layout_constraintTop_toBottomOf="@id/tvComment"
+        tools:text="1. id labore ex et quam laborum \n2. quo vero reiciendis velit similique earum \n3. odio adipisci rerum aut animi \n4. alias odio sit \n5. vero eaque aliquid doloribus et culpa" />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

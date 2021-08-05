@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UserPostsApplication</string>
+    <string name="userid">UserId : </string>
+    <string name="title">Title : </string>
+    <string name="post_details">Post Details</string>
+    <string name="username">Username :</string>
+    <string name="body">Body :</string>
+    <string name="comments">Comments :</string>
+</resources>
