@@ -1,10 +1,8 @@
 package com.example.userpostsapplication.di
 
 import com.example.userpostsapplication.BuildConfig
-import com.example.userpostsapplication.data.database.UserPostsDao
 import com.example.userpostsapplication.data.remote.PostApiInterface
 import com.example.userpostsapplication.data.remote.RemoteDataSource
-import com.example.userpostsapplication.data.repository.PostsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,10 +49,5 @@ object NetworkModule {
     @Singleton
     fun provideRemoteDataSource(postApiInterface: PostApiInterface) =RemoteDataSource(postApiInterface)
 
-    @Singleton
-    @Provides
-    fun provideRepository(remoteDataSource: RemoteDataSource,
-                          userPostsDao: UserPostsDao) =
-        PostsRepository(remoteDataSource, userPostsDao)
 
 }
