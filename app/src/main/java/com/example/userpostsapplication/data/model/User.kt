@@ -2,8 +2,6 @@ package com.example.userpostsapplication.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import com.example.userpostsapplication.data.CompanyTypeConverter
 
 @Entity
 data class User(

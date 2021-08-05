@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.userpostsapplication.data.model.Post
 import com.example.userpostsapplication.databinding.ItemPostBinding
 
-abstract class PostsAdapter(private var postList: List<Post>) :
+class PostsAdapter(private var postList: List<Post>, private val listener: OnPostItemClickListener) :
     RecyclerView.Adapter<PostsAdapter.PostViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -16,11 +16,8 @@ abstract class PostsAdapter(private var postList: List<Post>) :
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(postList[position])
-        holder.itemPostBinding.root.setOnClickListener { onPostClick(postList[position]) }
+        holder.bind(postList[position],listener)
     }
-
-    abstract fun onPostClick(post: Post)
 
     override fun getItemCount(): Int {
         return postList.size
@@ -33,12 +30,13 @@ abstract class PostsAdapter(private var postList: List<Post>) :
         }
     }
 
-    class PostViewHolder(val itemPostBinding: ItemPostBinding) :
+    class PostViewHolder(private val itemPostBinding: ItemPostBinding) :
         RecyclerView.ViewHolder(itemPostBinding.root) {
 
-        fun bind(post: Post) {
-            itemPostBinding.tvUserIdValue.text = post.userId.toString()
-            itemPostBinding.tvTitleValue.text = post.title
+        fun bind(post: Post, listener: OnPostItemClickListener) {
+            itemPostBinding.post=post
+            itemPostBinding.listener=listener
+            itemPostBinding.executePendingBindings()
         }
     }
 }

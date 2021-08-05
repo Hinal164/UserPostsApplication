@@ -1,10 +1,7 @@
-package com.example.userpostsapplication.data
+package com.example.userpostsapplication.data.model
 
 import androidx.room.TypeConverter
-import com.example.userpostsapplication.data.model.Address
-import com.example.userpostsapplication.data.model.Company
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 object CompanyTypeConverter {
     var gson = Gson()

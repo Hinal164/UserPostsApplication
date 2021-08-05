@@ -17,7 +17,7 @@ import com.example.userpostsapplication.view.postdetail.PostDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PostsActivity : AppCompatActivity() {
+class PostsActivity : AppCompatActivity(), OnPostItemClickListener {
 
     private val postsViewModel: PostsViewModel by viewModels()
     private lateinit var binding: ActivityPostsBinding
@@ -35,13 +35,7 @@ class PostsActivity : AppCompatActivity() {
 
     private fun setUpUI() {
         binding.postRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = object : PostsAdapter(arrayListOf()){
-            override fun onPostClick(post: Post) {
-                val intent = Intent(this@PostsActivity,PostDetailActivity::class.java)
-                intent.putExtra("post",post as Parcelable)
-                startActivity(intent)
-            }
-        }
+        adapter =  PostsAdapter(arrayListOf(),this)
         binding.postRecyclerView.adapter = adapter
     }
 
@@ -64,4 +58,9 @@ class PostsActivity : AppCompatActivity() {
         })
     }
 
+    override fun onPostItemClick(post: Post) {
+        val intent = Intent(this@PostsActivity,PostDetailActivity::class.java)
+        intent.putExtra("post",post as Parcelable)
+        startActivity(intent)
+    }
 }
