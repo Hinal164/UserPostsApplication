@@ -2,7 +2,6 @@ package com.example.userpostsapplication.di
 
 import com.example.userpostsapplication.BuildConfig
 import com.example.userpostsapplication.data.remote.PostApiInterface
-import com.example.userpostsapplication.data.remote.RemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,10 +43,5 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): PostApiInterface = retrofit.create(PostApiInterface::class.java)
-
-    @Provides
-    @Singleton
-    fun provideRemoteDataSource(postApiInterface: PostApiInterface) =RemoteDataSource(postApiInterface)
-
 
 }

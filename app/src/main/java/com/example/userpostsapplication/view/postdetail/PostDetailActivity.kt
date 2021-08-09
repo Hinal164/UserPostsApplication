@@ -26,17 +26,19 @@ class PostDetailActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true);
 
         post = intent.getParcelableExtra("post")!!
+        postDetailViewModel.setUserId(post.userId)
+        postDetailViewModel.setPostId(post.id)
         binding.tvTitleValue.text=post.title
         binding.tvBodyValue.text=post.body
 
-        setUserObserver(post.userId)
-        setCommentsObserver(post.id)
+        setUserObserver()
+        setCommentsObserver()
 
     }
 
 
-    private fun setUserObserver(userId: Int) {
-        postDetailViewModel.getSpecificUser(userId).observe(this, Observer {
+    private fun setUserObserver() {
+        postDetailViewModel.userLiveData.observe(this, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
                     binding.progressbar.visibility=View.GONE
@@ -55,8 +57,8 @@ class PostDetailActivity : AppCompatActivity() {
         })
     }
 
-    private fun setCommentsObserver(postId: Int) {
-        postDetailViewModel.getCommentList(postId).observe(this, Observer {
+    private fun setCommentsObserver() {
+        postDetailViewModel.commentListLiveData.observe(this, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
                     binding.progressbar.visibility=View.GONE

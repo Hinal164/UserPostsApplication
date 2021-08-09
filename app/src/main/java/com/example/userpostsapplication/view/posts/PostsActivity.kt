@@ -28,6 +28,7 @@ class PostsActivity : AppCompatActivity(), OnPostItemClickListener {
         setContentView(binding.root)
         binding.viewModel=postsViewModel
         binding.lifecycleOwner = this
+        postsViewModel.setPostBoolean(true)
         setUpUI()
         setUpObserver()
 
@@ -40,7 +41,7 @@ class PostsActivity : AppCompatActivity(), OnPostItemClickListener {
     }
 
     private fun setUpObserver() {
-        postsViewModel.postList.observe(this, Observer {
+        postsViewModel.postListLiveData.observe(this, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
                     Log.d("TAG", "size: ${it.data?.size}")
